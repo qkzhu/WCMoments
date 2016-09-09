@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainVC.h
 //  WCMoments
 //
 //  Created by QianKun on 9/9/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MainVC : UIViewController
 
 @end
-
