@@ -15,6 +15,31 @@
 		F7FAD96D1D82FCFB000DC9CA /* WCMomentsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD96C1D82FCFB000DC9CA /* WCMomentsUITests.m */; };
 		F7FAD97C1D82FDD4000DC9CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7FAD97B1D82FDD4000DC9CA /* Assets.xcassets */; };
 		F7FAD9841D82FE92000DC9CA /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9831D82FE92000DC9CA /* MainVC.m */; };
+		F7FAD9871D8317CA000DC9CA /* WCMomentsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9851D8317CA000DC9CA /* WCMomentsModel.xcdatamodeld */; };
+		F7FAD9981D831E53000DC9CA /* Comment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9891D831E53000DC9CA /* Comment+CoreDataProperties.m */; };
+		F7FAD9991D831E53000DC9CA /* Comment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9891D831E53000DC9CA /* Comment+CoreDataProperties.m */; };
+		F7FAD99A1D831E53000DC9CA /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD98B1D831E53000DC9CA /* Comment.m */; };
+		F7FAD99B1D831E53000DC9CA /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD98B1D831E53000DC9CA /* Comment.m */; };
+		F7FAD99C1D831E53000DC9CA /* Tweet+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD98D1D831E53000DC9CA /* Tweet+CoreDataProperties.m */; };
+		F7FAD99D1D831E53000DC9CA /* Tweet+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD98D1D831E53000DC9CA /* Tweet+CoreDataProperties.m */; };
+		F7FAD99E1D831E53000DC9CA /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD98F1D831E53000DC9CA /* Tweet.m */; };
+		F7FAD99F1D831E53000DC9CA /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD98F1D831E53000DC9CA /* Tweet.m */; };
+		F7FAD9A01D831E53000DC9CA /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9911D831E53000DC9CA /* User+CoreDataProperties.m */; };
+		F7FAD9A11D831E53000DC9CA /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9911D831E53000DC9CA /* User+CoreDataProperties.m */; };
+		F7FAD9A21D831E53000DC9CA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9931D831E53000DC9CA /* User.m */; };
+		F7FAD9A31D831E53000DC9CA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9931D831E53000DC9CA /* User.m */; };
+		F7FAD9A41D831E53000DC9CA /* Media+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9951D831E53000DC9CA /* Media+CoreDataProperties.m */; };
+		F7FAD9A51D831E53000DC9CA /* Media+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9951D831E53000DC9CA /* Media+CoreDataProperties.m */; };
+		F7FAD9A61D831E53000DC9CA /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9971D831E53000DC9CA /* Media.m */; };
+		F7FAD9A71D831E53000DC9CA /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9971D831E53000DC9CA /* Media.m */; };
+		F7FAD9AA1D831EF3000DC9CA /* WebServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9A91D831EF3000DC9CA /* WebServiceManager.m */; };
+		F7FAD9AB1D831EF3000DC9CA /* WebServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9A91D831EF3000DC9CA /* WebServiceManager.m */; };
+		F7FAD9AE1D832040000DC9CA /* WebResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9AD1D832040000DC9CA /* WebResponseHandler.m */; };
+		F7FAD9AF1D832040000DC9CA /* WebResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9AD1D832040000DC9CA /* WebResponseHandler.m */; };
+		F7FAD9B21D8320B0000DC9CA /* UserDataResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9B11D8320B0000DC9CA /* UserDataResponseHandler.m */; };
+		F7FAD9B31D8320B0000DC9CA /* UserDataResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9B11D8320B0000DC9CA /* UserDataResponseHandler.m */; };
+		F7FAD9B61D8320C2000DC9CA /* TweetDataResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9B51D8320C2000DC9CA /* TweetDataResponseHandler.m */; };
+		F7FAD9B71D8320C2000DC9CA /* TweetDataResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9B51D8320C2000DC9CA /* TweetDataResponseHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +78,31 @@
 		F7FAD97B1D82FDD4000DC9CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		F7FAD9821D82FE92000DC9CA /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainVC.h; path = ViewControllers/MainVC.h; sourceTree = "<group>"; };
 		F7FAD9831D82FE92000DC9CA /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainVC.m; path = ViewControllers/MainVC.m; sourceTree = "<group>"; };
+		F7FAD9861D8317CA000DC9CA /* WCMomentsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WCMomentsModel.xcdatamodel; sourceTree = "<group>"; };
+		F7FAD9881D831E53000DC9CA /* Comment+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Comment+CoreDataProperties.h"; path = "DataModel/Comment+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F7FAD9891D831E53000DC9CA /* Comment+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Comment+CoreDataProperties.m"; path = "DataModel/Comment+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F7FAD98A1D831E53000DC9CA /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = DataModel/Comment.h; sourceTree = "<group>"; };
+		F7FAD98B1D831E53000DC9CA /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = DataModel/Comment.m; sourceTree = "<group>"; };
+		F7FAD98C1D831E53000DC9CA /* Tweet+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tweet+CoreDataProperties.h"; path = "DataModel/Tweet+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F7FAD98D1D831E53000DC9CA /* Tweet+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tweet+CoreDataProperties.m"; path = "DataModel/Tweet+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F7FAD98E1D831E53000DC9CA /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = DataModel/Tweet.h; sourceTree = "<group>"; };
+		F7FAD98F1D831E53000DC9CA /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = DataModel/Tweet.m; sourceTree = "<group>"; };
+		F7FAD9901D831E53000DC9CA /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "DataModel/User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F7FAD9911D831E53000DC9CA /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "DataModel/User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F7FAD9921D831E53000DC9CA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = DataModel/User.h; sourceTree = "<group>"; };
+		F7FAD9931D831E53000DC9CA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = DataModel/User.m; sourceTree = "<group>"; };
+		F7FAD9941D831E53000DC9CA /* Media+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Media+CoreDataProperties.h"; path = "DataModel/Media+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F7FAD9951D831E53000DC9CA /* Media+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Media+CoreDataProperties.m"; path = "DataModel/Media+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F7FAD9961D831E53000DC9CA /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Media.h; path = DataModel/Media.h; sourceTree = "<group>"; };
+		F7FAD9971D831E53000DC9CA /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Media.m; path = DataModel/Media.m; sourceTree = "<group>"; };
+		F7FAD9A81D831EF3000DC9CA /* WebServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebServiceManager.h; path = Services/WebServiceManager.h; sourceTree = "<group>"; };
+		F7FAD9A91D831EF3000DC9CA /* WebServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebServiceManager.m; path = Services/WebServiceManager.m; sourceTree = "<group>"; };
+		F7FAD9AC1D832040000DC9CA /* WebResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebResponseHandler.h; path = Services/WebResponseHandler.h; sourceTree = "<group>"; };
+		F7FAD9AD1D832040000DC9CA /* WebResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebResponseHandler.m; path = Services/WebResponseHandler.m; sourceTree = "<group>"; };
+		F7FAD9B01D8320B0000DC9CA /* UserDataResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataResponseHandler.h; path = Services/UserDataResponseHandler.h; sourceTree = "<group>"; };
+		F7FAD9B11D8320B0000DC9CA /* UserDataResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataResponseHandler.m; path = Services/UserDataResponseHandler.m; sourceTree = "<group>"; };
+		F7FAD9B41D8320C2000DC9CA /* TweetDataResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetDataResponseHandler.h; path = Services/TweetDataResponseHandler.h; sourceTree = "<group>"; };
+		F7FAD9B51D8320C2000DC9CA /* TweetDataResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetDataResponseHandler.m; path = Services/TweetDataResponseHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +181,6 @@
 				F7FAD97A1D82FDBF000DC9CA /* Resources */,
 				F7FAD94A1D82FCFB000DC9CA /* AppDelegate.h */,
 				F7FAD94B1D82FCFB000DC9CA /* AppDelegate.m */,
-				F7FAD9551D82FCFB000DC9CA /* LaunchScreen.storyboard */,
 				F7FAD9471D82FCFB000DC9CA /* Supporting Files */,
 			);
 			path = WCMoments;
@@ -140,6 +189,7 @@
 		F7FAD9471D82FCFB000DC9CA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F7FAD9551D82FCFB000DC9CA /* LaunchScreen.storyboard */,
 				F7FAD9581D82FCFB000DC9CA /* Info.plist */,
 				F7FAD9481D82FCFB000DC9CA /* main.m */,
 			);
@@ -191,6 +241,23 @@
 		F7FAD97F1D82FE0E000DC9CA /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				F7FAD9881D831E53000DC9CA /* Comment+CoreDataProperties.h */,
+				F7FAD9891D831E53000DC9CA /* Comment+CoreDataProperties.m */,
+				F7FAD98A1D831E53000DC9CA /* Comment.h */,
+				F7FAD98B1D831E53000DC9CA /* Comment.m */,
+				F7FAD98C1D831E53000DC9CA /* Tweet+CoreDataProperties.h */,
+				F7FAD98D1D831E53000DC9CA /* Tweet+CoreDataProperties.m */,
+				F7FAD98E1D831E53000DC9CA /* Tweet.h */,
+				F7FAD98F1D831E53000DC9CA /* Tweet.m */,
+				F7FAD9901D831E53000DC9CA /* User+CoreDataProperties.h */,
+				F7FAD9911D831E53000DC9CA /* User+CoreDataProperties.m */,
+				F7FAD9921D831E53000DC9CA /* User.h */,
+				F7FAD9931D831E53000DC9CA /* User.m */,
+				F7FAD9941D831E53000DC9CA /* Media+CoreDataProperties.h */,
+				F7FAD9951D831E53000DC9CA /* Media+CoreDataProperties.m */,
+				F7FAD9961D831E53000DC9CA /* Media.h */,
+				F7FAD9971D831E53000DC9CA /* Media.m */,
+				F7FAD9851D8317CA000DC9CA /* WCMomentsModel.xcdatamodeld */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -198,6 +265,14 @@
 		F7FAD9801D82FE1A000DC9CA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F7FAD9A81D831EF3000DC9CA /* WebServiceManager.h */,
+				F7FAD9A91D831EF3000DC9CA /* WebServiceManager.m */,
+				F7FAD9AC1D832040000DC9CA /* WebResponseHandler.h */,
+				F7FAD9AD1D832040000DC9CA /* WebResponseHandler.m */,
+				F7FAD9B01D8320B0000DC9CA /* UserDataResponseHandler.h */,
+				F7FAD9B11D8320B0000DC9CA /* UserDataResponseHandler.m */,
+				F7FAD9B41D8320C2000DC9CA /* TweetDataResponseHandler.h */,
+				F7FAD9B51D8320C2000DC9CA /* TweetDataResponseHandler.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -389,7 +464,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7FAD9B21D8320B0000DC9CA /* UserDataResponseHandler.m in Sources */,
+				F7FAD9AA1D831EF3000DC9CA /* WebServiceManager.m in Sources */,
+				F7FAD9A21D831E53000DC9CA /* User.m in Sources */,
 				F7FAD9841D82FE92000DC9CA /* MainVC.m in Sources */,
+				F7FAD99A1D831E53000DC9CA /* Comment.m in Sources */,
+				F7FAD9B61D8320C2000DC9CA /* TweetDataResponseHandler.m in Sources */,
+				F7FAD9981D831E53000DC9CA /* Comment+CoreDataProperties.m in Sources */,
+				F7FAD9A01D831E53000DC9CA /* User+CoreDataProperties.m in Sources */,
+				F7FAD9AE1D832040000DC9CA /* WebResponseHandler.m in Sources */,
+				F7FAD9A41D831E53000DC9CA /* Media+CoreDataProperties.m in Sources */,
+				F7FAD9A61D831E53000DC9CA /* Media.m in Sources */,
+				F7FAD99E1D831E53000DC9CA /* Tweet.m in Sources */,
+				F7FAD99C1D831E53000DC9CA /* Tweet+CoreDataProperties.m in Sources */,
+				F7FAD9871D8317CA000DC9CA /* WCMomentsModel.xcdatamodeld in Sources */,
 				F7FAD94C1D82FCFB000DC9CA /* AppDelegate.m in Sources */,
 				F7FAD9491D82FCFB000DC9CA /* main.m in Sources */,
 			);
@@ -399,7 +487,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7FAD9AB1D831EF3000DC9CA /* WebServiceManager.m in Sources */,
+				F7FAD9A51D831E53000DC9CA /* Media+CoreDataProperties.m in Sources */,
+				F7FAD9A11D831E53000DC9CA /* User+CoreDataProperties.m in Sources */,
+				F7FAD9A31D831E53000DC9CA /* User.m in Sources */,
 				F7FAD9621D82FCFB000DC9CA /* WCMomentsTests.m in Sources */,
+				F7FAD9AF1D832040000DC9CA /* WebResponseHandler.m in Sources */,
+				F7FAD9B31D8320B0000DC9CA /* UserDataResponseHandler.m in Sources */,
+				F7FAD99D1D831E53000DC9CA /* Tweet+CoreDataProperties.m in Sources */,
+				F7FAD99F1D831E53000DC9CA /* Tweet.m in Sources */,
+				F7FAD9B71D8320C2000DC9CA /* TweetDataResponseHandler.m in Sources */,
+				F7FAD9A71D831E53000DC9CA /* Media.m in Sources */,
+				F7FAD99B1D831E53000DC9CA /* Comment.m in Sources */,
+				F7FAD9991D831E53000DC9CA /* Comment+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +732,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F7FAD9851D8317CA000DC9CA /* WCMomentsModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F7FAD9861D8317CA000DC9CA /* WCMomentsModel.xcdatamodel */,
+			);
+			currentVersion = F7FAD9861D8317CA000DC9CA /* WCMomentsModel.xcdatamodel */;
+			name = WCMomentsModel.xcdatamodeld;
+			path = DataModel/WCMomentsModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F7FAD93C1D82FCFB000DC9CA /* Project object */;
 }

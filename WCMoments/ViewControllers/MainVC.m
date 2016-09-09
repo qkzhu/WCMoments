@@ -7,6 +7,7 @@
 //
 
 #import "MainVC.h"
+#import "WebServiceManager.h"
 
 @interface MainVC ()
 
@@ -25,6 +26,13 @@
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
+    
+    //TODO:for testing, delete
+    [[WebServiceManager sharedManager] getUserDataWithUserName:@"jsmith" onSuccess:^(id response) {
+        NSLog(@"MainVC main thread success: %@", response);
+    } onFail:^(NSError *error) {
+        NSLog(@"MainVC main thread failed: %@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
