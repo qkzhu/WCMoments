@@ -1,2 +1,2 @@
-# WCMoments
+# WeChat Moments
 Install Pods first
