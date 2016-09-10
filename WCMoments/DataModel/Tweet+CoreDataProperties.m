@@ -14,8 +14,8 @@
 @implementation Tweet (CoreDataProperties)
 
 @dynamic content;
+@dynamic comments;
 @dynamic images;
 @dynamic sender;
-@dynamic comments;
 
 @end

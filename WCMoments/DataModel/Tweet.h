@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Comment;
+@class Media, TweetComment, User;
 
 NS_ASSUME_NONNULL_BEGIN
 

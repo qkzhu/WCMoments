@@ -7,8 +7,9 @@
 //
 
 #import "User.h"
-#import "Comment.h"
+#import "Media.h"
 #import "Tweet.h"
+#import "TweetComment.h"
 
 @implementation User
 

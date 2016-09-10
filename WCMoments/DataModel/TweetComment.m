@@ -1,14 +1,16 @@
 //
-//  Comment.m
+//  TweetComment.m
 //  WCMoments
 //
 //  Created by QianKun on 10/9/16.
 //  Copyright © 2016 QianKun. All rights reserved.
 //
 
-#import "Comment.h"
+#import "TweetComment.h"
+#import "Tweet.h"
+#import "User.h"
 
-@implementation Comment
+@implementation TweetComment
 
 // Insert code here to add functionality to your managed object subclass
 

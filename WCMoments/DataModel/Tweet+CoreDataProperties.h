@@ -16,23 +16,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Tweet (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *content;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *images;
-@property (nullable, nonatomic, retain) NSManagedObject *sender;
-@property (nullable, nonatomic, retain) NSSet<Comment *> *comments;
+@property (nullable, nonatomic, retain) NSSet<TweetComment *> *comments;
+@property (nullable, nonatomic, retain) NSSet<Media *> *images;
+@property (nullable, nonatomic, retain) User *sender;
 
 @end
 
 @interface Tweet (CoreDataGeneratedAccessors)
 
-- (void)addImagesObject:(NSManagedObject *)value;
-- (void)removeImagesObject:(NSManagedObject *)value;
-- (void)addImages:(NSSet<NSManagedObject *> *)values;
-- (void)removeImages:(NSSet<NSManagedObject *> *)values;
+- (void)addCommentsObject:(TweetComment *)value;
+- (void)removeCommentsObject:(TweetComment *)value;
+- (void)addComments:(NSSet<TweetComment *> *)values;
+- (void)removeComments:(NSSet<TweetComment *> *)values;
 
-- (void)addCommentsObject:(Comment *)value;
-- (void)removeCommentsObject:(Comment *)value;
-- (void)addComments:(NSSet<Comment *> *)values;
-- (void)removeComments:(NSSet<Comment *> *)values;
+- (void)addImagesObject:(Media *)value;
+- (void)removeImagesObject:(Media *)value;
+- (void)addImages:(NSSet<Media *> *)values;
+- (void)removeImages:(NSSet<Media *> *)values;
 
 @end
 

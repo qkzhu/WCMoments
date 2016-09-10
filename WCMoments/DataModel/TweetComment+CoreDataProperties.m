@@ -1,5 +1,5 @@
 //
-//  Comment+CoreDataProperties.m
+//  TweetComment+CoreDataProperties.m
 //  WCMoments
 //
 //  Created by QianKun on 10/9/16.
@@ -9,9 +9,9 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Comment+CoreDataProperties.h"
+#import "TweetComment+CoreDataProperties.h"
 
-@implementation Comment (CoreDataProperties)
+@implementation TweetComment (CoreDataProperties)
 
 @dynamic content;
 @dynamic sender;

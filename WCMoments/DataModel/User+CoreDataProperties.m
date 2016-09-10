@@ -15,9 +15,9 @@
 
 @dynamic nick;
 @dynamic username;
-@dynamic profieImage;
 @dynamic avatar;
-@dynamic postedTweet;
 @dynamic postedComment;
+@dynamic postedTweet;
+@dynamic profieImage;
 
 @end

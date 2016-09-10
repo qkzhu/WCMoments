@@ -17,19 +17,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, retain) NSString *nick;
 @property (nullable, nonatomic, retain) NSString *username;
-@property (nullable, nonatomic, retain) NSManagedObject *profieImage;
-@property (nullable, nonatomic, retain) NSManagedObject *avatar;
+@property (nullable, nonatomic, retain) Media *avatar;
+@property (nullable, nonatomic, retain) NSSet<TweetComment *> *postedComment;
 @property (nullable, nonatomic, retain) Tweet *postedTweet;
-@property (nullable, nonatomic, retain) NSSet<Comment *> *postedComment;
+@property (nullable, nonatomic, retain) Media *profieImage;
 
 @end
 
 @interface User (CoreDataGeneratedAccessors)
 
-- (void)addPostedCommentObject:(Comment *)value;
-- (void)removePostedCommentObject:(Comment *)value;
-- (void)addPostedComment:(NSSet<Comment *> *)values;
-- (void)removePostedComment:(NSSet<Comment *> *)values;
+- (void)addPostedCommentObject:(TweetComment *)value;
+- (void)removePostedCommentObject:(TweetComment *)value;
+- (void)addPostedComment:(NSSet<TweetComment *> *)values;
+- (void)removePostedComment:(NSSet<TweetComment *> *)values;
 
 @end
 

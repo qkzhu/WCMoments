@@ -8,6 +8,13 @@
 
 #import "CoreDataManager.h"
 #import "User.h"
+#import "Media.h"
+#import "TweetComment.h"
+
+static const NSString *kNick = @"nick";
+static const NSString *kUserName = @"username";
+static const NSString *kProfileImage = @"profile-image";
+static const NSString *kAvatar = @"avatar";
 
 @implementation CoreDataManager
 
@@ -65,9 +72,49 @@
     return [result firstObject];
 }
 
+
 - (BOOL)usernameExist:(NSString *)username
 {
     return [self getUserByUserName:username] != nil;
+}
+
+
+- (User *)getUserFromUserRawData:(NSDictionary *)userRawData
+{
+    if (!userRawData || ![userRawData isKindOfClass:[NSDictionary class]]) return nil;
+    
+    NSString *username = [userRawData objectForKey:kUserName];
+    if (!username) return nil;
+    
+    User *userObj = [self getUserByUserName:username];
+    if (userObj) return userObj;
+    
+    // create new user if user does not exist
+    userObj = [[CoreDataManager sharedDataManager] createEntityWithName:NSStringFromClass([User class])];
+    userObj.nick = [userRawData objectForKey:kNick];
+    userObj.username = username;
+    
+    // profile image
+    NSString *profileImgUrl = [userRawData objectForKey:kProfileImage];
+    if (profileImgUrl)
+    {
+        Media *profileImg = [self createEntityWithName:NSStringFromClass([Media class])];
+        profileImg.imageURL = profileImgUrl;
+        userObj.profieImage = profileImg;
+    }
+    
+    // avatar image
+    NSString *avatarImgUrl = [userRawData objectForKey:kAvatar];
+    if (avatarImgUrl)
+    {
+        Media *avatarImg = [self createEntityWithName:NSStringFromClass([Media class])];
+        avatarImg.imageURL = avatarImgUrl;
+        userObj.avatar = avatarImg;
+    }
+    
+    [self saveEntity:userObj];
+    
+    return userObj;
 }
 
 #pragma mark - Lazy
@@ -77,7 +124,7 @@
     {
         NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
         if (coordinator != nil) {
-            _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+            _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
             [_managedObjectContext setPersistentStoreCoordinator:coordinator];
         }
     }

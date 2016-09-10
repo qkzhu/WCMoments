@@ -1,5 +1,5 @@
 //
-//  Comment+CoreDataProperties.h
+//  TweetComment+CoreDataProperties.h
 //  WCMoments
 //
 //  Created by QianKun on 10/9/16.
@@ -9,15 +9,15 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Comment.h"
+#import "TweetComment.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Comment (CoreDataProperties)
+@interface TweetComment (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *content;
-@property (nullable, nonatomic, retain) NSManagedObject *sender;
-@property (nullable, nonatomic, retain) NSManagedObject *tweetOfComment;
+@property (nullable, nonatomic, retain) User *sender;
+@property (nullable, nonatomic, retain) Tweet *tweetOfComment;
 
 @end
 

@@ -7,7 +7,9 @@
 //
 
 #import "Tweet.h"
-#import "Comment.h"
+#import "Media.h"
+#import "TweetComment.h"
+#import "User.h"
 
 @implementation Tweet
 

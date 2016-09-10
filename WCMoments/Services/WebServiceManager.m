@@ -64,9 +64,9 @@
 {
     if (!username) return;
     
-    NSString *method = [NSString stringWithFormat:@"user/%@", username];
-    UserDataResponseHandler *userDataHandler = [[UserDataResponseHandler alloc] initWithSuccessHandler:success errorHandler:fail];
-    [self receiveDataWithMethod:method responseHandler:userDataHandler];
+    NSString *method = [NSString stringWithFormat:@"user/%@/tweets", username];
+    TweetDataResponseHandler *tweetrDataHandler = [[TweetDataResponseHandler alloc] initWithSuccessHandler:success errorHandler:fail];
+    [self receiveDataWithMethod:method responseHandler:tweetrDataHandler];
     
 }
 

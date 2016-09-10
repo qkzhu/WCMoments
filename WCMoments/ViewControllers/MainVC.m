@@ -32,9 +32,15 @@
     
     //TODO:for testing, delete
     [[WebServiceManager sharedManager] getUserDataWithUserName:@"jsmith" onSuccess:^(id response) {
-        NSLog(@"MainVC main thread success: %@", response);
+        NSLog(@"***** User data success: %@", response);
     } onFail:^(NSError *error) {
-        NSLog(@"MainVC main thread failed: %@", error);
+        NSLog(@"***** User data failed: %@", error);
+    }];
+    
+    [[WebServiceManager sharedManager] getUserTweetsWithUserName:@"jsmith" onSuccess:^(id response) {
+        NSLog(@"***** Tweet data success: %@", response);
+    } onFail:^(NSError *error) {
+        NSLog(@"***** Tweet data failed: %@", error);
     }];
 }
 
