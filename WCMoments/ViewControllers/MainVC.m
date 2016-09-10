@@ -8,6 +8,9 @@
 
 #import "MainVC.h"
 #import "WebServiceManager.h"
+#import "CoreDataManager.h"
+#import "User.h"
+
 
 @interface MainVC ()
 
