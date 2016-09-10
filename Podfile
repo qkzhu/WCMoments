@@ -3,8 +3,16 @@
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
+def shared_pods
+    pod 'AFNetworking', '~>3.0'
+end
+
 target 'WCMoments' do
-    pod 'AFNetworking', '~> 3.0'
+   shared_pods
+end
+
+target 'WCMomentsTests' do
+   shared_pods
 end
 
 post_install do |installer|
