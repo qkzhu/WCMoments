@@ -72,6 +72,7 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     }
     else
     {
+//        return 1;
         return self.tweets.count;
     }
 }
@@ -88,6 +89,7 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     {
         TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:tweetCellID forIndexPath:indexPath];
         Tweet *tweetData = [self.tweets objectAtIndex:indexPath.row];
+//        Tweet *tweetData = [self.tweets objectAtIndex:5];
         [cell setupWithData:tweetData];
         return cell;
     }
@@ -103,6 +105,7 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     else
     {
         Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
+//        Tweet *tweet = [self.tweets objectAtIndex:5];
         return [TweetCell getCellHeightWithData:tweet withContentWidth:tableView.frame.size.width];
     }
 }
@@ -128,7 +131,7 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.allowsSelection = NO;
     self.tableView.estimatedRowHeight = 44;
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, self.navigationController.navigationBar.frame.size.height, 0);
     [self.view addSubview:self.tableView];
     
     [self.tableView registerClass:[ProfileCell class] forCellReuseIdentifier:profileCellID];
