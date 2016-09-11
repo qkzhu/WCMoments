@@ -25,6 +25,7 @@
 - (id)createEntityWithName:(NSString *)entityName;
 - (User *)getUserByUserName:(NSString *)username;
 - (BOOL)usernameExist:(NSString *)username;
+- (NSArray *)getAllTweets;
 
 // passing a json data and return existing user obj if the data exist, else insert new data and return inserted data object.
 - (User *)getUserFromUserRawData:(NSDictionary *)userRawData;

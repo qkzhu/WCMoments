@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *username;
 @property (nullable, nonatomic, retain) Media *avatar;
 @property (nullable, nonatomic, retain) NSSet<TweetComment *> *postedComment;
-@property (nullable, nonatomic, retain) Tweet *postedTweet;
+@property (nullable, nonatomic, retain) NSSet<Tweet *> *postedTweet;
 @property (nullable, nonatomic, retain) Media *profieImage;
 
 @end
@@ -30,6 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removePostedCommentObject:(TweetComment *)value;
 - (void)addPostedComment:(NSSet<TweetComment *> *)values;
 - (void)removePostedComment:(NSSet<TweetComment *> *)values;
+
+- (void)addPostedTweetObject:(Tweet *)value;
+- (void)removePostedTweetObject:(Tweet *)value;
+- (void)addPostedTweet:(NSSet<Tweet *> *)values;
+- (void)removePostedTweet:(NSSet<Tweet *> *)values;
 
 @end
 

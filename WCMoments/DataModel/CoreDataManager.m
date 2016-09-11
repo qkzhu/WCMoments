@@ -9,6 +9,7 @@
 #import "CoreDataManager.h"
 #import "User.h"
 #import "Media.h"
+#import "Tweet.h"
 #import "TweetComment.h"
 
 static const NSString *kNick = @"nick";
@@ -78,7 +79,6 @@ static const NSString *kAvatar = @"avatar";
     return [self getUserByUserName:username] != nil;
 }
 
-
 - (User *)getUserFromUserRawData:(NSDictionary *)userRawData
 {
     if (!userRawData || ![userRawData isKindOfClass:[NSDictionary class]]) return nil;
@@ -115,6 +115,15 @@ static const NSString *kAvatar = @"avatar";
     [self saveEntity:userObj];
     
     return userObj;
+}
+
+- (NSArray *)getAllTweets
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([Tweet class])];
+    NSError *error;
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    return result;
 }
 
 #pragma mark - Lazy

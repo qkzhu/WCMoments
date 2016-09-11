@@ -17,6 +17,10 @@
 		F705EC581D84046300480275 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = F705EC4E1D84046300480275 /* Media.m */; };
 		F705EC591D84046300480275 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F705EC501D84046300480275 /* User+CoreDataProperties.m */; };
 		F705EC5A1D84046300480275 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F705EC521D84046300480275 /* User.m */; };
+		F705EC5D1D84177A00480275 /* MomentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F705EC5C1D84177A00480275 /* MomentsVC.m */; };
+		F705EC601D84227800480275 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F705EC5F1D84227800480275 /* ProfileCell.m */; };
+		F705EC631D84258900480275 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F705EC621D84258900480275 /* TweetCell.m */; };
+		F705EC661D8535DC00480275 /* UISettingUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = F705EC651D8535DC00480275 /* UISettingUtility.m */; };
 		F7ED3B751D84020B00C214D8 /* WCMomentsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7ED3B731D84020B00C214D8 /* WCMomentsModel.xcdatamodeld */; };
 		F7FAD9491D82FCFB000DC9CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD9481D82FCFB000DC9CA /* main.m */; };
 		F7FAD94C1D82FCFB000DC9CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FAD94B1D82FCFB000DC9CA /* AppDelegate.m */; };
@@ -78,6 +82,14 @@
 		F705EC501D84046300480275 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "DataModel/User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		F705EC511D84046300480275 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = DataModel/User.h; sourceTree = "<group>"; };
 		F705EC521D84046300480275 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = DataModel/User.m; sourceTree = "<group>"; };
+		F705EC5B1D84177A00480275 /* MomentsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MomentsVC.h; path = ViewControllers/MomentsVC.h; sourceTree = "<group>"; };
+		F705EC5C1D84177A00480275 /* MomentsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MomentsVC.m; path = ViewControllers/MomentsVC.m; sourceTree = "<group>"; };
+		F705EC5E1D84227800480275 /* ProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileCell.h; path = Views/ProfileCell.h; sourceTree = "<group>"; };
+		F705EC5F1D84227800480275 /* ProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileCell.m; path = Views/ProfileCell.m; sourceTree = "<group>"; };
+		F705EC611D84258900480275 /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetCell.h; path = Views/TweetCell.h; sourceTree = "<group>"; };
+		F705EC621D84258900480275 /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetCell.m; path = Views/TweetCell.m; sourceTree = "<group>"; };
+		F705EC641D8535DB00480275 /* UISettingUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UISettingUtility.h; path = Utility/UISettingUtility.h; sourceTree = "<group>"; };
+		F705EC651D8535DC00480275 /* UISettingUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UISettingUtility.m; path = Utility/UISettingUtility.m; sourceTree = "<group>"; };
 		F7ED3B741D84020B00C214D8 /* WCMomentsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WCMomentsModel.xcdatamodel; sourceTree = "<group>"; };
 		F7FAD9441D82FCFB000DC9CA /* WCMoments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WCMoments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7FAD9481D82FCFB000DC9CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -234,6 +246,8 @@
 			children = (
 				F7FAD9821D82FE92000DC9CA /* MainVC.h */,
 				F7FAD9831D82FE92000DC9CA /* MainVC.m */,
+				F705EC5B1D84177A00480275 /* MomentsVC.h */,
+				F705EC5C1D84177A00480275 /* MomentsVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -241,6 +255,10 @@
 		F7FAD97E1D82FE04000DC9CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F705EC5E1D84227800480275 /* ProfileCell.h */,
+				F705EC5F1D84227800480275 /* ProfileCell.m */,
+				F705EC611D84258900480275 /* TweetCell.h */,
+				F705EC621D84258900480275 /* TweetCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -289,6 +307,8 @@
 		F7FAD9811D82FE21000DC9CA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F705EC641D8535DB00480275 /* UISettingUtility.h */,
+				F705EC651D8535DC00480275 /* UISettingUtility.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -524,8 +544,11 @@
 				F7FAD9B21D8320B0000DC9CA /* UserDataResponseHandler.m in Sources */,
 				F705EC561D84046300480275 /* TweetComment.m in Sources */,
 				F705EC551D84046300480275 /* TweetComment+CoreDataProperties.m in Sources */,
+				F705EC631D84258900480275 /* TweetCell.m in Sources */,
+				F705EC601D84227800480275 /* ProfileCell.m in Sources */,
 				F7FAD9AA1D831EF3000DC9CA /* WebServiceManager.m in Sources */,
 				F705EC5A1D84046300480275 /* User.m in Sources */,
+				F705EC661D8535DC00480275 /* UISettingUtility.m in Sources */,
 				F7FAD9841D82FE92000DC9CA /* MainVC.m in Sources */,
 				F7FAD9B61D8320C2000DC9CA /* TweetDataResponseHandler.m in Sources */,
 				F705EC581D84046300480275 /* Media.m in Sources */,
@@ -533,6 +556,7 @@
 				F705EC541D84046300480275 /* Tweet.m in Sources */,
 				F705EC571D84046300480275 /* Media+CoreDataProperties.m in Sources */,
 				F705EC531D84046300480275 /* Tweet+CoreDataProperties.m in Sources */,
+				F705EC5D1D84177A00480275 /* MomentsVC.m in Sources */,
 				F7FAD94C1D82FCFB000DC9CA /* AppDelegate.m in Sources */,
 				F7FAD9491D82FCFB000DC9CA /* main.m in Sources */,
 				F7ED3B751D84020B00C214D8 /* WCMomentsModel.xcdatamodeld in Sources */,
@@ -677,6 +701,7 @@
 			baseConfigurationReference = 20F66187847733B0C40C09AD /* Pods-WCMoments.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WCMoments/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -690,6 +715,7 @@
 			baseConfigurationReference = 8B167BFF5BFD72A84879D7BA /* Pods-WCMoments.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WCMoments/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

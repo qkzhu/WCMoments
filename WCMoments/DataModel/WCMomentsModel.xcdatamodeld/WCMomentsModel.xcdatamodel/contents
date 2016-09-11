@@ -21,7 +21,7 @@
         <attribute name="nick" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="avatar" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Media" inverseName="avatarOwner" inverseEntity="Media" syncable="YES"/>
-        <relationship name="postedComment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TweetComment" inverseName="sender" inverseEntity="TweetComment" syncable="YES"/>
+        <relationship name="postedComment" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TweetComment" inverseName="sender" inverseEntity="TweetComment" syncable="YES"/>
         <relationship name="postedTweet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Tweet" inverseName="sender" inverseEntity="Tweet" syncable="YES"/>
         <relationship name="profieImage" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Media" inverseName="profileImageOwner" inverseEntity="Media" syncable="YES"/>
     </entity>
