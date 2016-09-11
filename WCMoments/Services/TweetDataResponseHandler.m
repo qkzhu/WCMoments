@@ -71,7 +71,7 @@ static const NSString *kAvatar = @"avatar";
                 for (NSDictionary *eachCommentRaw in tweetCommentsRaw)
                 {
                     NSString *commentContent = [eachCommentRaw objectForKey:kCommentContent];
-                    User *commentSender = [[CoreDataManager sharedDataManager] getUserFromUserRawData:[eachTweetRaw objectForKey:kSender]];
+                    User *commentSender = [[CoreDataManager sharedDataManager] getUserFromUserRawData:[eachCommentRaw objectForKey:kSender]];
                     if (!commentSender || !commentContent) continue;
                     
                     TweetComment *newComment = [[CoreDataManager sharedDataManager]
