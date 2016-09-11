@@ -23,7 +23,6 @@
 #define LABEL_TRAILING 8
 
 #define IMAGE_PENDING 4
-
 #define MAX_IMAGE_PER_ROW 3
 
 
@@ -32,7 +31,7 @@
 @property (nonatomic, strong) UIImageView *imgViewAvatar;
 @property (nonatomic, strong) UILabel *lblNick;
 @property (nonatomic, strong) UILabel *lblContent;
-@property (nonatomic, strong) NSArray *images;
+@property (nonatomic, strong) UILabel *lblComments;
 @property (nonatomic, strong) NSArray *imageViewsList;
 
 @end
@@ -70,13 +69,11 @@
     [self.imgViewAvatar setImageWithURL:[NSURL URLWithString:tweet.sender.avatar.imageURL]];
     self.lblNick.text = tweet.sender.nick ? tweet.sender.nick : tweet.sender.username;
     self.lblContent.text = tweet.content;
-    self.images = [tweet.images allObjects];
     
-    // first: clean all imageViews
+    // images
     [self cleanAllImageViews];
     if (tweet.images.count > 0 )
     {
-        // add
         NSMutableArray *newImageViewList = [NSMutableArray array];
         for (Media *meida in [tweet.images allObjects])
         {
@@ -85,10 +82,18 @@
             imageView.translatesAutoresizingMaskIntoConstraints = NO;
             [self.contentView addSubview:imageView];
             [newImageViewList addObject:imageView];
-            [imageView setImageWithURL:[NSURL URLWithString:meida.imageURL]];
+            [imageView setImageWithURL:[NSURL URLWithString:meida.imageURL] placeholderImage:[UIImage imageNamed:@"place_holder"]];
         }
         
         self.imageViewsList = newImageViewList;
+    }
+    
+    // comments
+    [self cleanAllComments];
+    if (tweet.comments.count > 0)
+    {
+        self.lblComments.text = [TweetCell mergeAllComments:tweet];
+        [self.contentView addSubview:self.lblComments];
     }
 }
 
@@ -118,11 +123,18 @@
         CGFloat imageLength = floor((contentWidth - PENDING * (MAX_IMAGE_PER_ROW - 1)) / MAX_IMAGE_PER_ROW);
         NSInteger totalImages = tweet.images.count;
         CGFloat totalLineOfImage = totalImages / MAX_IMAGE_PER_ROW + (totalImages % 3 == 0 ? 0 :1);
-        totalHeight += totalLineOfImage * imageLength + (totalLineOfImage - 1) * PENDING;
+        totalHeight += (totalLineOfImage * imageLength + (totalLineOfImage - 1) * IMAGE_PENDING + PENDING);
     }
     
     // set comments
-    
+    if (tweet.comments.count > 0)
+    {
+        NSString *allComments = [self mergeAllComments:tweet];
+        CGFloat contentLabelHeight = [UISettingUtility getLabelHeightWithLabelWidth:contentWidth
+                                                                         contentStr:allComments
+                                                                          labelFont:[UISettingUtility contentFont]];
+        totalHeight += (PENDING + contentLabelHeight);
+    }
     
     if (totalHeight < AVATAR_IMAGE_LENGTH)
         totalHeight = AVATAR_IMAGE_LENGTH;
@@ -171,6 +183,19 @@
     return _lblContent;
 }
 
+- (UILabel *)lblComments
+{
+    if (!_lblComments)
+    {
+        _lblComments = [[UILabel alloc] init];
+        _lblComments.font = [UISettingUtility contentFont];
+        _lblComments.textColor = [UISettingUtility contentColor];
+        _lblComments.numberOfLines = 0;
+    }
+    
+    return _lblComments;
+}
+
 #pragma mark - Private
 - (void)setupViews
 {
@@ -200,7 +225,7 @@
     // set content label
     CGRect lblContentFrame = CGRectZero;
     lblContentFrame.origin.x = contentOrigin.x;
-    lblContentFrame.origin.y = lblNickFrame.origin.y + PENDING + lblNickFrame.size.height;
+    lblContentFrame.origin.y = lblNickFrame.origin.y + totalHeight + PENDING;
     lblContentFrame.size.width = contentWidth;
     lblContentFrame.size.height = [UISettingUtility getLabelHeightWithLabel:self.lblContent];
     self.lblContent.frame = lblContentFrame;
@@ -213,25 +238,24 @@
         
         CGRect imageFrame = CGRectZero;
         imageFrame.origin.x = contentOrigin.x;
-        imageFrame.origin.y = lblContentFrame.origin.y + lblContentFrame.size.height + PENDING;
+        imageFrame.origin.y = contentOrigin.y + totalHeight + PENDING;
         CGFloat imageLength = ceil(contentWidth / 2);
         imageFrame.size.width = imageLength;
         imageFrame.size.height = imageLength;
         imageView.frame = imageFrame;
         
         totalHeight += (PENDING + imageLength);
-        
     }
     else if (self.imageViewsList.count > 1 && self.imageViewsList.count <= 9)
     {
-        CGFloat imageLength = floor((contentWidth - PENDING * (MAX_IMAGE_PER_ROW - 1)) / MAX_IMAGE_PER_ROW);
-        CGFloat imagesStartingY = lblContentFrame.origin.y + lblContentFrame.size.height + PENDING;
+        CGFloat imageLength = floor((contentWidth - IMAGE_PENDING * (MAX_IMAGE_PER_ROW - 1)) / MAX_IMAGE_PER_ROW);
+        CGFloat imagesStartingY = contentOrigin.y + totalHeight + PENDING;
         NSInteger totalImages = self.imageViewsList.count;
         for (int i = 0; i < totalImages; i++)
         {
             CGRect imageFrame = CGRectZero;
-            imageFrame.origin.x = contentOrigin.x + (i % MAX_IMAGE_PER_ROW) * (imageLength + PENDING);
-            imageFrame.origin.y = imagesStartingY + (i / MAX_IMAGE_PER_ROW) * (imageLength + PENDING);
+            imageFrame.origin.x = contentOrigin.x + (i % MAX_IMAGE_PER_ROW) * (imageLength + IMAGE_PENDING);
+            imageFrame.origin.y = imagesStartingY + (i / MAX_IMAGE_PER_ROW) * (imageLength + IMAGE_PENDING);
             imageFrame.size.width = imageLength;
             imageFrame.size.height = imageLength;
             UIImageView *imageView = [self.imageViewsList objectAtIndex:i];
@@ -239,7 +263,7 @@
         }
         
         CGFloat totalLineOfImage = totalImages / MAX_IMAGE_PER_ROW + (totalImages % 3 == 0 ? 0 :1);
-        totalHeight += totalLineOfImage * imageLength + (totalLineOfImage - 1) * PENDING;
+        totalHeight += (totalLineOfImage * imageLength + (totalLineOfImage - 1) * IMAGE_PENDING + PENDING);
     }
     else
     {
@@ -247,6 +271,30 @@
     }
     
     // set comments
+    if (self.lblComments.text.length > 0)
+    {
+        if (!self.lblComments.superview)
+        {
+            [self.contentView addSubview:self.lblComments];
+        }
+        else if (![self.lblComments.superview isKindOfClass:[self class]])
+        {
+            [self.lblComments removeFromSuperview];
+            [self.contentView addSubview:self.lblComments];
+        }
+        
+        CGRect commentLabelFrame = CGRectZero;
+        commentLabelFrame.origin.x = contentOrigin.x;
+        commentLabelFrame.origin.y = contentOrigin.y + totalHeight + PENDING;
+        commentLabelFrame.size.width = contentWidth;
+        commentLabelFrame.size.height = [UISettingUtility getLabelHeightWithLabel:self.lblComments];
+        self.lblComments.frame = commentLabelFrame;
+        totalHeight += (PENDING + commentLabelFrame.size.height);
+    }
+    else
+    {
+        [self cleanAllComments];
+    }
     
     // set content view frame
     cellFrame.size.height = totalHeight < AVATAR_IMAGE_LENGTH ? AVATAR_IMAGE_LENGTH : totalHeight;
@@ -260,6 +308,42 @@
         [imageView removeFromSuperview];
     }
     self.imageViewsList = nil;
+}
+
+- (void)cleanAllComments
+{
+    self.lblComments.text = nil;
+    [self.lblComments removeFromSuperview];
+}
+
++ (NSString *)mergeAllComments:(Tweet *)tweet
+{
+    //TODO: to add different color for sender name
+    /*
+    NSDictionary *senderNameAttribute = [NSDictionary dictionaryWithObject:[UISettingUtility profileNickNameColor]
+                                                                    forKey:NSForegroundColorAttributeName];
+    NSDictionary *contentAttribute = [NSDictionary dictionaryWithObject:[UISettingUtility contentColor]
+                                                                 forKey:NSForegroundColorAttributeName];
+
+    NSMutableAttributedString *labelText = [[NSMutableAttributedString alloc] initWithString:@""];
+     */
+    
+    NSMutableString *labelText = [NSMutableString stringWithString:@""];
+    NSString *senderName;
+    for (TweetComment *comment in tweet.comments)
+    {
+        senderName = comment.sender.nick ? comment.sender.nick : comment.sender.username;
+        if (labelText.length > 0)
+        {
+            [labelText appendFormat:@"\n%@: %@", senderName, comment.content];
+        }
+        else
+        {
+            [labelText appendFormat:@"%@: %@", senderName, comment.content];
+        }
+    }
+    
+    return labelText;
 }
 
 @end
