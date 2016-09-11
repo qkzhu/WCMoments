@@ -23,6 +23,7 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) User *userData;
 @property (nonatomic, strong) NSArray *tweets;
+@property (nonatomic, assign) NSInteger totalShowed;
 
 @end
 
@@ -72,8 +73,7 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     }
     else
     {
-//        return 1;
-        return self.tweets.count;
+        return self.totalShowed > self.tweets.count ? self.tweets.count : self.totalShowed;
     }
 }
 
@@ -89,8 +89,14 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     {
         TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:tweetCellID forIndexPath:indexPath];
         Tweet *tweetData = [self.tweets objectAtIndex:indexPath.row];
-//        Tweet *tweetData = [self.tweets objectAtIndex:5];
         [cell setupWithData:tweetData];
+        
+        if (indexPath.row + 1 == self.totalShowed)
+        {
+            self.totalShowed += 5;
+            [tableView reloadData];
+        }
+        
         return cell;
     }
 }
@@ -136,6 +142,8 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     
     [self.tableView registerClass:[ProfileCell class] forCellReuseIdentifier:profileCellID];
     [self.tableView registerClass:[TweetCell class] forCellReuseIdentifier:tweetCellID];
+    
+    self.totalShowed = 5;
 }
 
 - (void)loadDataAndUpdateView
