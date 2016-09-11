@@ -25,6 +25,7 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
 @property (nonatomic, strong) NSArray *tweets;
 @property (nonatomic, assign) NSInteger totalShowed;
 
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 
@@ -51,7 +52,7 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     [self loadDataAndUpdateView];
 }
 
-#pragma UI componets actions
+#pragma mark - UI componets actions
 - (void)rightBarBtnTapped
 {
     NSLog(@"right bar button tapped");
@@ -144,6 +145,15 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     [self.tableView registerClass:[TweetCell class] forCellReuseIdentifier:tweetCellID];
     
     self.totalShowed = 5;
+    // add refresh view and actions
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor grayColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(tableEndRefreshed:)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    [self.tableView addSubview:self.refreshControl];
 }
 
 - (void)loadDataAndUpdateView
@@ -205,5 +215,12 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     [self.tableView reloadData];
 }
 
+- (void)tableEndRefreshed:(UIRefreshControl *)refreshControl
+{
+    [NSThread sleepForTimeInterval:2];
+    [self.refreshControl endRefreshing];
+    self.totalShowed = 5;
+    [self.tableView reloadData];
+}
 
 @end
