@@ -13,5 +13,8 @@
 
 + (UIFont *)profileNickNameFont;
 + (UIColor *)profileNickNameColor;
-
++ (UIFont *)contentFont;
++ (UIColor *)contentColor;
++ (CGFloat)getLabelHeightWithLabelWidth:(CGFloat)labelWidth contentStr:(NSString *)ctStr labelFont:(UIFont *)font;
++ (CGFloat)getLabelHeightWithLabel:(UILabel *)label;
 @end

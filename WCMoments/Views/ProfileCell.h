@@ -11,6 +11,8 @@
 @class User;
 
 @interface ProfileCell : UITableViewCell
+
 - (void)setupWithData:(User *)user;
 + (CGFloat)getCellHeight;
+
 @end

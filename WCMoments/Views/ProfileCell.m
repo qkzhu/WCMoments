@@ -12,6 +12,7 @@
 #import "User.h"
 #import "Media.h"
 
+// constant and configuration
 #define DEFAULT_NICK @"Undefined"
 
 #define PROFILE_IMAGE_HEIGHT 250
@@ -48,6 +49,12 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self updateFramesWithCellFrame:self.contentView.frame];
+}
+
 #pragma mark - Public
 - (void)setupWithData:(User *)user
 {
@@ -57,15 +64,9 @@
     self.lblNick.text = user.nick ? user.nick : DEFAULT_NICK;
 }
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    [self updateFramesWithCellFrame:self.contentView.frame];
-}
-
 + (CGFloat)getCellHeight
 {
-    return PROFILE_IMAGE_HEIGHT + AVATAR_OFFSET_PROFILE_IMAGE + 20;
+    return PROFILE_IMAGE_HEIGHT + AVATAR_OFFSET_PROFILE_IMAGE + SELF_PENDDING_BOTTOM;
 }
 
 #pragma mark - Lazy

@@ -88,7 +88,7 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     {
         TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:tweetCellID forIndexPath:indexPath];
         Tweet *tweetData = [self.tweets objectAtIndex:indexPath.row];
-        cell.textLabel.text = tweetData.content;
+        [cell setupWithData:tweetData];
         return cell;
     }
 }
@@ -96,13 +96,15 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-#warning compute only first time of height and store it in a array
     if (indexPath.section == 0)
     {
-        CGFloat height = [ProfileCell getCellHeight];
-        return height;
+        return [ProfileCell getCellHeight];
     }
-    else return 44;
+    else
+    {
+        Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
+        return [TweetCell getCellHeightWithData:tweet withContentWidth:tableView.frame.size.width];
+    }
 }
 
 #pragma mark - Private
@@ -126,6 +128,7 @@ static NSString *tweetCellID = @"TweetCellIdentifier";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.allowsSelection = NO;
     self.tableView.estimatedRowHeight = 44;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 44, 0);
     [self.view addSubview:self.tableView];
     
     [self.tableView registerClass:[ProfileCell class] forCellReuseIdentifier:profileCellID];
