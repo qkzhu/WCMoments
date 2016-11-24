@@ -1,2 +1,2 @@
 # WeChat Moments
-Install Pods first
+Install Pods first.

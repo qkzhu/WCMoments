@@ -92,7 +92,8 @@
     [self cleanAllComments];
     if (tweet.comments.count > 0)
     {
-        self.lblComments.text = [TweetCell mergeAllComments:tweet];
+//        self.lblComments.text = [TweetCell mergeAllComments:tweet];
+        self.lblComments.attributedText = [TweetCell mergeAllComments:tweet];
         [self.contentView addSubview:self.lblComments];
     }
 }
@@ -129,7 +130,7 @@
     // set comments
     if (tweet.comments.count > 0)
     {
-        NSString *allComments = [self mergeAllComments:tweet];
+        NSString *allComments = [self mergeAllComments:tweet].string;
         CGFloat contentLabelHeight = [UISettingUtility getLabelHeightWithLabelWidth:contentWidth
                                                                          contentStr:allComments
                                                                           labelFont:[UISettingUtility contentFont]];
@@ -316,31 +317,44 @@
     [self.lblComments removeFromSuperview];
 }
 
-+ (NSString *)mergeAllComments:(Tweet *)tweet
++ (NSAttributedString *)mergeAllComments:(Tweet *)tweet
 {
     //TODO: to add different color for sender name
-    /*
+    
     NSDictionary *senderNameAttribute = [NSDictionary dictionaryWithObject:[UISettingUtility profileNickNameColor]
                                                                     forKey:NSForegroundColorAttributeName];
     NSDictionary *contentAttribute = [NSDictionary dictionaryWithObject:[UISettingUtility contentColor]
                                                                  forKey:NSForegroundColorAttributeName];
 
     NSMutableAttributedString *labelText = [[NSMutableAttributedString alloc] initWithString:@""];
-     */
     
-    NSMutableString *labelText = [NSMutableString stringWithString:@""];
+    
+    
+//    NSMutableString *labelText = [NSMutableString stringWithString:@""];
+    NSAttributedString *lineBreak = [[NSAttributedString alloc] initWithString:@"\n" attributes:nil];
     NSString *senderName;
     for (TweetComment *comment in tweet.comments)
     {
         senderName = comment.sender.nick ? comment.sender.nick : comment.sender.username;
+        
+        NSAttributedString *nickname = [[NSAttributedString alloc] initWithString:senderName attributes:senderNameAttribute];
+        NSAttributedString *userComment = [[NSAttributedString alloc] initWithString:comment.content attributes:contentAttribute];
+
         if (labelText.length > 0)
         {
-            [labelText appendFormat:@"\n%@: %@", senderName, comment.content];
+            [labelText appendAttributedString:lineBreak];
         }
-        else
-        {
-            [labelText appendFormat:@"%@: %@", senderName, comment.content];
-        }
+        [labelText appendAttributedString:nickname];
+        [labelText appendAttributedString:userComment];
+        
+//        if (labelText.length > 0)
+//        {
+//            [labelText appendFormat:@"\n%@: %@", senderName, comment.content];
+//        }
+//        else
+//        {
+//            [labelText appendFormat:@"%@: %@", senderName, comment.content];
+//        }
     }
     
     return labelText;
